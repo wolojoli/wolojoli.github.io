@@ -1,0 +1,98 @@
+<!doctype html>
+<html ng-app="gcApp">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GC Tools</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+    <link rel="stylesheet" href="mdl/material.min.css">
+    <script defer src="mdl/material.min.js"></script>
+    <style>
+        .mdl-textfield {
+            padding:0;
+        }
+        
+        .mdl-textfield__label{
+            top: 0;
+        }
+        .mdl-textfield__label:after{
+            bottom:0;
+        }
+        .mdl-tabs__tab {
+            text-transform: none;
+        }
+        
+        .mdl-tabs__tab-bar {
+            -webkit-justify-content: inherit;
+            justify-content: unset;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <div class="mdl-tabs__tab-bar">
+            <a href="#woordwaarde" class="mdl-tabs__tab is-active">Woordwaarde</a>
+            <a href="#rotx" class="mdl-tabs__tab">Rot X</a>
+        </div>
+        <div class="mdl-tabs__panel is-active" id="woordwaarde" ng-controller="ww">
+            <form action="#">
+                <div class="mdl-grid mdl-layout__content">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <select ng-model="selectedMethod" ng-options="x.name for x in wwMethods" class="mdl-textfield mdl-textfield__input"></select>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
+                        <textarea class="mdl-textfield__input" type="text" rows="1" ng-model="wwText"></textarea>
+                        <label class="mdl-textfield__label">Enter text</label>
+                    </div>
+                    <div class="mdl-cell mdl-cell--2-col mdl-textfield">
+                        Woordwaarde
+                    </div>
+                    <div class="mdl-cell mdl-cell--10-col mdl-cell--6-col-tablet mdl-cell--2-col-phone  mdl-textfield">
+                        {{woordWaarde()}}
+                    </div>
+                    <div class="mdl-cell mdl-cell--2-col  mdl-textfield">
+                        Stapeltellen
+                    </div>
+                    <div class="mdl-cell mdl-cell--10-col  mdl-cell--6-col-tablet mdl-cell--2-col-phone  mdl-textfield">
+                        {{stapel}}
+                    </div>
+                    <div class="mdl-cell mdl-cell--2-col mdl-textfield">
+                        Tot 1 cijfer
+                    </div>
+                    <div class="mdl-cell mdl-cell--10-col  mdl-cell--6-col-tablet mdl-cell--2-col-phone  mdl-textfield">
+                        {{one}}
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="mdl-tabs__panel" id="rotx" ng-controller="rotx">
+            <form action="#">
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--1-col">
+                        <select ng-model="rot" ng-options="x for x in vals" class="mdl-textfield"></select>
+                    </div>
+                    <div class="mdl-cell mdl-cell--1-col">
+                        <button type="button"  class="mdl-button" ng-click='rot = rot - 1 '>&lt;</button>
+                    </div>
+                    <div class="mdl-cell mdl-cell--1-col">
+                        <button type="button" class="mdl-button" ng-click='rot = rot + 1 '>&gt;</button>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
+                        <textarea class="mdl-textfield__input" type="text" rows="1" placeholder="Enter text" ng-model="text"></textarea>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
+                        {{rotate()}}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        var app = angular.module('gcApp', []);
+    </script>
+    <script src="ww.js"></script>
+    <script src="rotx.js"></script>
+</body>
+
+</html>
