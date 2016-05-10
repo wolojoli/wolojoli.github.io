@@ -6,19 +6,30 @@
     <title>GC Tools</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
     <link rel="stylesheet" href="mdl/material.min.css">
-    <link rel="shorcut icon" type="image/ico" href="logo2.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
     <script defer src="mdl/material.min.js"></script>
     <style>
         .mdl-textfield {
-            padding:0;
+            padding: 0;
         }
         
-        .mdl-textfield__label{
+        .mdl-textfield__label {
             top: 0;
         }
-        .mdl-textfield__label:after{
-            bottom:0;
+        
+        .mdl-textfield__label:after {
+            bottom: 0;
         }
+        
         .mdl-tabs__tab {
             text-transform: none;
         }
@@ -74,7 +85,7 @@
                         <select ng-model="rot" ng-options="x for x in vals" class="mdl-textfield"></select>
                     </div>
                     <div class="mdl-cell mdl-cell--1-col">
-                        <button type="button"  class="mdl-button" ng-click='rot = rot - 1 '>&lt;</button>
+                        <button type="button" class="mdl-button" ng-click='rot = rot - 1 '>&lt;</button>
                     </div>
                     <div class="mdl-cell mdl-cell--1-col">
                         <button type="button" class="mdl-button" ng-click='rot = rot + 1 '>&gt;</button>
