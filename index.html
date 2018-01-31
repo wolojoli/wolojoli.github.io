@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel=manifest href="manifest.json">
+    <link rel="icon" sizes="192x192" href="image/icon-192x192.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>GC-Tools</title>
+    <meta charset="utf-8">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .row,
+        .nav {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a data-toggle="tab" href="#woordwaarde" class="nav-link active">Woordwaarde</a>
+            </li>
+            <li class="nav-item">
+                <a data-toggle="tab" href="#rotx" class="nav-link">RotX</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="woordwaarde" class="tab-pane active form-group">
+                <div class="row">
+                    <div class="col">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="wwMethod" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                {{ methods[current].name }}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="wwMethod">
+                                <a class="dropdown-item" href="#" v-for="(method, index) in methods" v-on:click="changeMethod(index)">{{ method.name }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <textarea class="form-control" rows="1" placeholder="Enter text" v-model="woord"></textarea>
+                    </div>
+                </div>
+                <div class=row>
+                    <div class="col-auto">
+                        Woordwaarde:
+                        <br/> Stapeltellen:
+                        <br/> Tot 1 cijfer:
+                    </div>
+                    <div class="col">
+                        {{ woordwaarde }}
+                        <br/> {{ stapel }}
+                        <br/> {{ one }}
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="rotx" class="tab-pane fade form-group">
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="wwMethod" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            {{ rotValue }}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="wwMethod">
+                            <a class="dropdown-item" href="#" v-for="i in 25" v-on:click="changeRot(i)">{{ i }}</a>
+                        </div>
+                        &nbsp;
+                        <button class="btn btn-secondary" v-on:click="{{ rotValue-- }}">&lt;</button>
+                        &nbsp;
+                        <button class="btn btn-secondary" v-on:click="{{ rotValue++ }}">&gt;</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <textarea class="form-control" rows="1" placeholder="Enter text" v-model="woord"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <span>{{ shifted }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+    </script>
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/ww.js"></script>
+    <script src="js/rotx.js"></script>
+
+</body>
+
+</html>
