@@ -3,11 +3,15 @@ const RUNTIME = 'runtime';
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
-  'index.html',
-  './', // Alias for index.html
-  './css/bootstrap.min.css',
-  './js/bootstrap.min.js',
-  './js/jquery-3.3.1.slim.min.js'
+    'index.html',
+    './', // Alias for index.html
+    './css/bootstrap.min.css',
+    './js/bootstrap.min.js',
+    './js/jquery-3.3.1.slim.min.js',
+    './js/popper.min.js',
+    './js/vue.min.js',
+    './js/ww.js',
+    './js/rotx.js'
 ];
 
 self.addEventListener('install', event => {

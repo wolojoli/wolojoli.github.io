@@ -13,23 +13,37 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
         .row,
-        .nav {
+        nav {
             margin-bottom: 10px;
         }
+.nav-pills a {
+    color: #fff;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #007bff;
+    background-color: #fff;
+}
+.nav-pills .nav-link {
+    border-bottom-left-radius: .0rem;
+    border-bottom-right-radius: .0rem;
+}
+
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a data-toggle="tab" href="#woordwaarde" class="nav-link active">Woordwaarde</a>
-            </li>
-            <li class="nav-item">
-                <a data-toggle="tab" href="#rotx" class="nav-link">RotX</a>
-            </li>
-        </ul>
-        <div class="tab-content">
+    <nav class="nav-bar navbar-dark bg-primary ">
+            <ul class="nav nav-pills">
+                <li class="nav-item ">
+                    <a data-toggle="tab" href="#woordwaarde" class="nav-link active">Woordwaarde</a>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="tab" href="#rotx" class="nav-link">RotX</a>
+                </li>
+            </ul>
+    </nav>
+        <div class="tab-content container-fluid">
             <div id="woordwaarde" class="tab-pane active form-group">
                 <div class="row">
                     <div class="col">
@@ -92,18 +106,17 @@
                 </div>
             </div>
         </div>
-    </div>
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js');
-        }
-    </script>
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/vue.min.js"></script>
-    <script src="js/ww.js"></script>
-    <script src="js/rotx.js"></script>
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('service-worker.js');
+            }
+        </script>
+        <script src="js/jquery-3.3.1.slim.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/vue.min.js"></script>
+        <script src="js/ww.js"></script>
+        <script src="js/rotx.js"></script>
 
 </body>
 
